@@ -297,6 +297,18 @@ class BatchConverter(object):
         return labels, strs, tokens
 
 
+def rawbatchlen(raw_batch: str): # ADDED
+    count = 0
+    counting = True
+    for ch in raw_batch:
+        if ch == "<":
+            counting = False
+        if ch == ">":
+            counting = True
+        if counting == True:
+            count += 1
+    return count
+
 class MSABatchConverter(BatchConverter):
     def __call__(self, inputs: Union[Sequence[RawMSA], RawMSA]):
         if isinstance(inputs[0][0], str):
@@ -307,7 +319,8 @@ class MSABatchConverter(BatchConverter):
 
         batch_size = len(raw_batch)
         max_alignments = max(len(msa) for msa in raw_batch)
-        max_seqlen = max(len(msa[0][1]) for msa in raw_batch)
+        #max_seqlen = max(len(msa[0][1]) for msa in raw_batch)
+        max_seqlen = max(rawbatchlen(msa[0][1]) for msa in raw_batch)  ### CHANGED
 
         tokens = torch.empty(
             (
@@ -322,7 +335,8 @@ class MSABatchConverter(BatchConverter):
         strs = []
 
         for i, msa in enumerate(raw_batch):
-            msa_seqlens = set(len(seq) for _, seq in msa)
+            #msa_seqlens = set(len(seq) for _, seq in msa)
+            msa_seqlens = set(rawbatchlen(seq) for _, seq in msa) ### CHANGED
             if not len(msa_seqlens) == 1:
                 raise RuntimeError(
                     "Received unaligned sequences for input to MSA, all sequence "
