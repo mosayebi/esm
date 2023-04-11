@@ -2,10 +2,10 @@
 
 [![atlas](https://user-images.githubusercontent.com/3605224/199301187-a9e38b3f-71a7-44be-94f4-db0d66143c53.png)](https://esmatlas.com)
 
-***Update March 2023:*** ESM Atlas was updated to `v2023_02`, simultaneous with the MGnify 2023_02 release in collaboration with EBI. We also release pre-computed ESM2 embeddings for the whole Atlas.
+***Update March 2023:*** ESM Atlas was updated to `v2023_02` bringing the number of predicted protein structures from 617 million to a total of 772 million. This update was simultaneous with the MGnify 2023_02 release in collaboration with EBI. We also release pre-computed ESM2 embeddings for the whole Atlas.
 
 This repository contains code and pre-trained weights for **Transformer protein language models** from the Meta Fundamental AI Research Protein Team (FAIR), including our state-of-the-art [**ESM-2** and **ESMFold**](#esmfold), as well as [**MSA Transformer**](https://www.biorxiv.org/content/10.1101/2021.02.12.430858v1), [**ESM-1v**](#zs_variant) for predicting variant effects and [**ESM-IF1**](#invf) for inverse folding.
-Transformer protein language models were introduced in the preprint of the paper ["Biological structure and function emerge from scaling unsupervised learning to 250 million protein sequences" (Rives et al., 2019)](https://doi.org/10.1101/622803).
+Transformer protein language models were introduced in the [2019 preprint](https://doi.org/10.1101/622803) of the paper ["Biological structure and function emerge from scaling unsupervised learning to 250 million protein sequences"](https://doi.org/10.1073/pnas.2016239118).
 ESM-2 outperforms all tested single-sequence protein language models across a range of structure prediction tasks.
 ESMFold harnesses the ESM-2 language model to generate accurate structure predictions end to end directly from the sequence of a protein.
 
@@ -14,21 +14,25 @@ The Atlas was updated in March 2023 in collaboration with EBI. The new `v2023_02
 Bulk download, blog post and the resources provided on the Atlas website are documented [on this README](#atlas).
 
 In December 2022, we released two simultaneous preprints on protein design.
-["Language models generalize beyond natural proteins" (Verkuil, Kabeli, et al., 2022)](https://doi.org/10.1101/2022.12.21.521521) uses ESM2 to design de novo proteins. The data associated with the preprint can be found in [scripts/design_lm/](scripts/design_lm/).
-["A high-level programming language for generative protein design" (Hie, Candido, et al., 2022)](https://doi.org/10.1101/2022.12.21.521521) uses ESMFold to design proteins according to a high-level programming language.
+["Language models generalize beyond natural proteins"](https://doi.org/10.1101/2022.12.21.521521) uses ESM2 to design de novo proteins. The data associated with the preprint can be found in [scripts/design_lm/](scripts/design_lm/).
+["A high-level programming language for generative protein design"](https://doi.org/10.1101/2022.12.21.521521) uses ESMFold to design proteins according to a high-level programming language.
 
 
 
 <details><summary><b>Citation</b></summary>
 For ESM2, ESMFold and ESM Atlas:
 ```bibtex
-@article{lin2022evolutionary,
-  title={Evolutionary-scale prediction of atomic level protein structure with a language model},
-  author={Lin, Zeming and Akin, Halil and Rao, Roshan and Hie, Brian and Zhu, Zhongkai and Lu, Wenting and Smetanin, Nikita and Verkuil, Robert and Kabeli, Ori and Shmueli, Yaniv and dos Santos Costa, Allan and Fazel-Zarandi, Maryam and Sercu, Tom and Candido, Salvatore and Rives, Alexander},
-  year={2022},
-  journal={bioRxiv},
-  note={bioRxiv 2022.07.20.500902},
-  url={https://doi.org/10.1101/2022.07.20.500902},
+@article{lin2023evolutionary,
+title = {Evolutionary-scale prediction of atomic-level protein structure with a language model},
+author = {Zeming Lin  and Halil Akin  and Roshan Rao  and Brian Hie  and Zhongkai Zhu  and Wenting Lu  and Nikita Smetanin  and Robert Verkuil  and Ori Kabeli  and Yaniv Shmueli  and Allan dos Santos Costa  and Maryam Fazel-Zarandi  and Tom Sercu  and Salvatore Candido  and Alexander Rives },
+journal = {Science},
+volume = {379},
+number = {6637},
+pages = {1123-1130},
+year = {2023},
+doi = {10.1126/science.ade2574},
+URL = {https://www.science.org/doi/abs/10.1126/science.ade2574},
+note={Earlier versions as preprint: bioRxiv 2022.07.20.500902},
 }
 ```
 
@@ -78,8 +82,8 @@ For transformer protein language models:
 - December 2022: The Meta Fundamental AI Research Protein Team (FAIR) released two simultaneous preprints on protein design:
 ["Language models generalize beyond natural proteins" (Verkuil, Kabeli, et al., 2022)](https://doi.org/10.1101/2022.12.21.521521), and ["A high-level programming language for generative protein design" (Hie, Candido, et al., 2022)](https://doi.org/10.1101/2022.12.21.521521).
 - November 2022: ESM Metagenomic Atlas, a repository of 600M+ metagenomics structures released, see [website](https://esmatlas.com/) and [bulk download details](#atlas)
-- November 2022: ESMFold - new end-to-end structure prediction model released (see [Lin et al. 2022](https://doi.org/10.1101/2022.07.20.500902))
-- August 2022: ESM-2 - new SOTA Language Models released (see [Lin et al. 2022](https://doi.org/10.1101/2022.07.20.500902))
+- November 2022: ESMFold - new end-to-end structure prediction model released (see [Lin et al. 2022](https://www.science.org/doi/abs/10.1126/science.ade2574))
+- August 2022: ESM-2 - new SOTA Language Models released (see [Lin et al. 2022](https://www.science.org/doi/abs/10.1126/science.ade2574))
 - April 2022: New inverse folding model ESM-IF1 released, trained on CATH and UniRef50 predicted structures.
 - August 2021: Added flexibility to tokenizer to allow for spaces and special tokens (like `<mask>`) in sequence.
 - July 2021: New pre-trained model ESM-1v released, trained on UniRef90 (see [Meier et al. 2021](https://doi.org/10.1101/2021.07.09.450648)).
@@ -95,7 +99,7 @@ For transformer protein language models:
 
 | Shorthand | `esm.pretrained.`           | Dataset | Description  |
 |-----------|-----------------------------|---------|--------------|
-| ESM-2    | `esm2_t36_3B_UR50D()` `esm2_t48_15B_UR50D()`       | UR50 (sample UR90)  | SOTA general-purpose protein language model. Can be used to predict structure, function and other protein properties directly from individual sequences. Released with [Lin et al. 2022](https://doi.org/10.1101/2022.07.20.500902) (Aug 2022 update). |
+| ESM-2    | `esm2_t36_3B_UR50D()` `esm2_t48_15B_UR50D()`       | UR50 (sample UR90)  | SOTA general-purpose protein language model. Can be used to predict structure, function and other protein properties directly from individual sequences. Released with [Lin et al. 2022](https://www.science.org/doi/abs/10.1126/science.ade2574) (Aug 2022 update). |
 | ESMFold   | `esmfold_v1()`         | PDB + UR50 | End-to-end single sequence 3D structure predictor (Nov 2022 update). |
 | ESM-MSA-1b| `esm_msa1b_t12_100M_UR50S()` |  UR50 + MSA  | MSA Transformer language model. Can be used to extract embeddings from an MSA. Enables SOTA inference of structure. Released with [Rao et al. 2021](https://www.biorxiv.org/content/10.1101/2021.02.12.430858v2) (ICML'21 version, June 2021).  |
 | ESM-1v    | `esm1v_t33_650M_UR90S_1()` ... `esm1v_t33_650M_UR90S_5()`| UR90  | Language model specialized for prediction of variant effects. Enables SOTA zero-shot prediction of the functional effects of sequence variations. Same architecture as ESM-1b, but trained on UniRef90. Released with [Meier et al. 2021](https://doi.org/10.1101/2021.07.09.450648). |
@@ -228,37 +232,91 @@ print(struct.b_factor.mean())  # this will be the pLDDT
 
 Besides `esm.pretrained.esmfold_v1()` which is the best performing model we recommend using, we
 also provide `esm.pretrained.esmfold_v0()` which was used for the experiments in
-[Lin et al. 2022](https://doi.org/10.1101/2022.07.20.500902).
+[Lin et al. 2022](https://www.science.org/doi/abs/10.1126/science.ade2574).
 
-We also provide a script (`scripts/esmfold_inference.py`) that efficiently predicts structures in bulk from a FASTA file using ESMFold. This can be run with
+We also provide a command line interface (`esm-fold`) that efficiently predicts structures in bulk from a FASTA file using ESMFold:
+```
+usage: esm-fold [-h] -i FASTA -o PDB [--num-recycles NUM_RECYCLES]
+                [--max-tokens-per-batch MAX_TOKENS_PER_BATCH]
+                [--chunk-size CHUNK_SIZE] [--cpu-only] [--cpu-offload]
 
-```bash
-python scripts/esmfold_inference.py \
-    -i <input file with multiple sequences> \
-    -o <path to output directory> \
-    --max-tokens-per-batch <int, default: 1024> \
-    --num-recycles <int, default: 4> \
-    --cpu-only <boolean flag>
-    --cpu-offload <boolean flag>
+optional arguments:
+  -h, --help            show this help message and exit
+  -i FASTA, --fasta FASTA
+                        Path to input FASTA file
+  -o PDB, --pdb PDB     Path to output PDB directory
+  --num-recycles NUM_RECYCLES
+                        Number of recycles to run. Defaults to number used in
+                        training (4).
+  --max-tokens-per-batch MAX_TOKENS_PER_BATCH
+                        Maximum number of tokens per gpu forward-pass. This
+                        will group shorter sequences together for batched
+                        prediction. Lowering this can help with out of memory
+                        issues, if these occur on short sequences.
+  --chunk-size CHUNK_SIZE
+                        Chunks axial attention computation to reduce memory
+                        usage from O(L^2) to O(L). Equivalent to running a for
+                        loop over chunks of of each dimension. Lower values
+                        will result in lower memory usage at the cost of
+                        speed. Recommended values: 128, 64, 32. Default: None.
+  --cpu-only            CPU only
+  --cpu-offload         Enable CPU offloading
 ```
 
-The script will make one prediction for every sequence in the fasta file. Multimers can be predicted and should be entered in the fasta file as a single sequence, with chains seprated by a ":" character.
+The command will make one prediction for every sequence in the fasta file. Multimers can be predicted and should be entered in the fasta file as a single sequence, with chains seprated by a ":" character.
 
 By default, predictions will be batched together so that shorter sequences are predicted simultaneously. This can be disabled by setting `--max-tokens-per-batch=0`. Batching can significantly improve prediction speed on shorter sequences.
 
 The `--cpu-offload` flag can be useful for making predictions on longer sequences. It will attempt to offload some parameters to the CPU RAM, rather than storing on GPU.
 
+Finally, the ablation experiments for LMs of varying sizes [Lin et al. 2022 table S1](https://www.science.org/doi/abs/10.1126/science.ade2574) are released as `esm.pretrained.esmfold_structure_module_only_*()`. We don't recommend using these models for structure prediction.
+
 
 ### Compute embeddings in bulk from FASTA <a name="bulk_fasta"></a>
 
-We provide a script that efficiently extracts embeddings in bulk from a FASTA file.
-A cuda device is optional and will be auto-detected.
-The following command extracts the final-layer embedding for a FASTA file from the ESM-2 model:
+We provide a command line interface (`esm-extract`) that efficiently extracts embeddings in bulk for a FASTA file from the ESM:
+```
+usage: esm-extract [-h] [--toks_per_batch TOKS_PER_BATCH]
+                   [--repr_layers REPR_LAYERS [REPR_LAYERS ...]] --include
+                   {mean,per_tok,bos,contacts}
+                   [{mean,per_tok,bos,contacts} ...]
+                   [--truncation_seq_length TRUNCATION_SEQ_LENGTH]
+                   model_location fasta_file output_dir
 
+Extract per-token representations and model outputs for sequences in a FASTA
+file
+
+positional arguments:
+  model_location        PyTorch model file OR name of pretrained model to
+                        download (see README for models)
+  fasta_file            FASTA file on which to extract representations
+  output_dir            output directory for extracted representations
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --toks_per_batch TOKS_PER_BATCH
+                        maximum batch size
+  --repr_layers REPR_LAYERS [REPR_LAYERS ...]
+                        layers indices from which to extract representations
+                        (0 to num_layers, inclusive)
+  --include {mean,per_tok,bos,contacts} [{mean,per_tok,bos,contacts} ...]
+                        specify which representations to return
+  --truncation_seq_length TRUNCATION_SEQ_LENGTH
+                        truncate sequences longer than the given value
+```
+
+The following commands allow the extraction of the final-layer embedding for a FASTA file from the ESM-2 model:
+
+```bash
+esm-extract esm2_t33_650M_UR50D examples/data/some_proteins.fasta \
+  examples/data/some_proteins_emb_esm2 --repr_layers 0 32 33 --include
+```
 ```bash
 python scripts/extract.py esm2_t33_650M_UR50D examples/data/some_proteins.fasta \
   examples/data/some_proteins_emb_esm2 --repr_layers 0 32 33 --include mean per_tok
 ```
+
+A cuda device is optional and will be auto-detected.
 
 Directory `some_proteins_emb_esm2/` now contains one `.pt` file per FASTA sequence; use `torch.load()` to load them.
 `scripts/extract.py` has flags that determine what's included in the `.pt` file:
@@ -312,7 +370,7 @@ For example, to sample 3 sequence designs for the golgi casein kinase structure
 (PDB [5YH2](https://www.rcsb.org/structure/5yh2); [PDB Molecule of the Month
 from January 2022](https://pdb101.rcsb.org/motm/265)), we can run the following
 command from the esm root directory:
-```
+```bash
 python examples/inverse_folding/sample_sequences.py examples/inverse_folding/data/5YH2.pdb \
   --chain C --temperature 1 --num-samples 3 --outpath examples/inverse_folding/output/sampled_sequences.fasta
 ```
@@ -414,25 +472,26 @@ and computes the self-attention map unsupervised contact predictions using ESM-2
 ### Pre-trained Models <a name="available-models"></a>
 
 | Shorthand | `esm.pretrained.`           | #layers | #params | Dataset | Embedding Dim |  Model URL (automatically downloaded to `~/.cache/torch/hub/checkpoints`) |
-|-----------|---------------------|---------|---------|---------|---------------|-----------------------------------------------------------------------|
-| ESM-2     | `esm2_t48_15B_UR50D`         | 48       | 15B         | UR50/D 2021_04                           | 5120 |  https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t48_15B_UR50D.pt          |
-|           | `esm2_t36_3B_UR50D`          | 36       | 3B          | UR50/D 2021_04                           | 2560 |  https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t36_3B_UR50D.pt           |
-|           | `esm2_t33_650M_UR50D`        | 33       | 650M        | UR50/D 2021_04                           | 1280 |  https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t33_650M_UR50D.pt         |
-|           | `esm2_t30_150M_UR50D`        | 30       | 150M        | UR50/D 2021_04                           | 640  |  https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t30_150M_UR50D.pt         |
-|           | `esm2_t12_35M_UR50D`         | 12       | 35M         | UR50/D 2021_04                           | 480  |  https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t12_35M_UR50D.pt          |
-|           | `esm2_t6_8M_UR50D`           | 6        | 8M          | UR50/D 2021_04                           | 320  |  https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t6_8M_UR50D.pt            |
-| ESMFold   | `esmfold_v1`                 | 48 (+36) | 690M (+3B)  | UR50/D 2021_04                           | -    |  https://dl.fbaipublicfiles.com/fair-esm/models/esmfold_3B_v1.pt               |
-|           | `esmfold_v0`                 | 48 (+36) | 690M (+3B)  | UR50/D 2021_04                           | -    |  https://dl.fbaipublicfiles.com/fair-esm/models/esmfold_3B_v0.pt               |
-| ESM-IF1   | `esm_if1_gvp4_t16_142M_UR50` | 20       | 124M        | CATH 4.3 + predicted structures for UR50 | 512  | https://dl.fbaipublicfiles.com/fair-esm/models/esm_if1_gvp4_t16_142M_UR50.pt   |
-| ESM-1v    | `esm1v_t33_650M_UR90S_[1-5]` | 33       | 650M        | UR90/S 2020_03                           | 1280 | https://dl.fbaipublicfiles.com/fair-esm/models/esm1v_t33_650M_UR90S_1.pt       |
-| ESM-MSA-1b| `esm_msa1b_t12_100M_UR50S`   | 12       | 100M        | UR50/S + MSA 2018_03                     | 768  | https://dl.fbaipublicfiles.com/fair-esm/models/esm_msa1b_t12_100M_UR50S.pt     |
-| ESM-MSA-1 | `esm_msa1_t12_100M_UR50S`    | 12       | 100M        | UR50/S + MSA 2018_03                     | 768  | https://dl.fbaipublicfiles.com/fair-esm/models/esm_msa1_t12_100M_UR50S.pt      |
-| ESM-1b    | `esm1b_t33_650M_UR50S`       | 33       | 650M        | UR50/S 2018_03                           | 1280 | https://dl.fbaipublicfiles.com/fair-esm/models/esm1b_t33_650M_UR50S.pt         |
-| ESM-1     | `esm1_t34_670M_UR50S`        | 34       | 670M        | UR50/S 2018_03                           | 1280 |  https://dl.fbaipublicfiles.com/fair-esm/models/esm1_t34_670M_UR50S.pt         |
-|           | `esm1_t34_670M_UR50D`        | 34       | 670M        | UR50/D 2018_03                           | 1280 |  https://dl.fbaipublicfiles.com/fair-esm/models/esm1_t34_670M_UR50D.pt         |
-|           | `esm1_t34_670M_UR100`        | 34       | 670M        | UR100 2018_03                            | 1280 |  https://dl.fbaipublicfiles.com/fair-esm/models/esm1_t34_670M_UR100.pt         |
-|           | `esm1_t12_85M_UR50S`         | 12       | 85M         | UR50/S 2018_03                           | 768  |  https://dl.fbaipublicfiles.com/fair-esm/models/esm1_t12_85M_UR50S.pt          |
-|           | `esm1_t6_43M_UR50S`          | 6        | 43M         | UR50/S 2018_03                           | 768  |  https://dl.fbaipublicfiles.com/fair-esm/models/esm1_t6_43M_UR50S.pt           |
+|-----------|---------------------|---------|-------------|---------|---------------|-----------------------------------------------------------------------|
+| ESM-2     | `esm2_t48_15B_UR50D`         | 48           | 15B         | UR50/D 2021_04                           | 5120 |  https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t48_15B_UR50D.pt          |
+|           | `esm2_t36_3B_UR50D`          | 36           | 3B          | UR50/D 2021_04                           | 2560 |  https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t36_3B_UR50D.pt           |
+|           | `esm2_t33_650M_UR50D`        | 33           | 650M        | UR50/D 2021_04                           | 1280 |  https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t33_650M_UR50D.pt         |
+|           | `esm2_t30_150M_UR50D`        | 30           | 150M        | UR50/D 2021_04                           | 640  |  https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t30_150M_UR50D.pt         |
+|           | `esm2_t12_35M_UR50D`         | 12           | 35M         | UR50/D 2021_04                           | 480  |  https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t12_35M_UR50D.pt          |
+|           | `esm2_t6_8M_UR50D`           | 6            | 8M          | UR50/D 2021_04                           | 320  |  https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t6_8M_UR50D.pt            |
+| ESMFold   | `esmfold_v1`                 | 48 (+36)     | 690M (+3B)  | UR50/D 2021_04                           | -    |  https://dl.fbaipublicfiles.com/fair-esm/models/esmfold_3B_v1.pt               |
+|           | `esmfold_v0`                 | 48 (+36)     | 690M (+3B)  | UR50/D 2021_04                           | -    |  https://dl.fbaipublicfiles.com/fair-esm/models/esmfold_3B_v0.pt               |
+|           | `esmfold_structure_module_only_*`              | 0 (+various) | various     | UR50/D 2021_04                           | -    |  https://dl.fbaipublicfiles.com/fair-esm/models/esmfold_structure_module_only_*                  |
+| ESM-IF1   | `esm_if1_gvp4_t16_142M_UR50` | 20           | 124M        | CATH 4.3 + predicted structures for UR50 | 512  | https://dl.fbaipublicfiles.com/fair-esm/models/esm_if1_gvp4_t16_142M_UR50.pt   |
+| ESM-1v    | `esm1v_t33_650M_UR90S_[1-5]` | 33           | 650M        | UR90/S 2020_03                           | 1280 | https://dl.fbaipublicfiles.com/fair-esm/models/esm1v_t33_650M_UR90S_1.pt       |
+| ESM-MSA-1b| `esm_msa1b_t12_100M_UR50S`   | 12           | 100M        | UR50/S + MSA 2018_03                     | 768  | https://dl.fbaipublicfiles.com/fair-esm/models/esm_msa1b_t12_100M_UR50S.pt     |
+| ESM-MSA-1 | `esm_msa1_t12_100M_UR50S`    | 12           | 100M        | UR50/S + MSA 2018_03                     | 768  | https://dl.fbaipublicfiles.com/fair-esm/models/esm_msa1_t12_100M_UR50S.pt      |
+| ESM-1b    | `esm1b_t33_650M_UR50S`       | 33           | 650M        | UR50/S 2018_03                           | 1280 | https://dl.fbaipublicfiles.com/fair-esm/models/esm1b_t33_650M_UR50S.pt         |
+| ESM-1     | `esm1_t34_670M_UR50S`        | 34           | 670M        | UR50/S 2018_03                           | 1280 |  https://dl.fbaipublicfiles.com/fair-esm/models/esm1_t34_670M_UR50S.pt         |
+|           | `esm1_t34_670M_UR50D`        | 34           | 670M        | UR50/D 2018_03                           | 1280 |  https://dl.fbaipublicfiles.com/fair-esm/models/esm1_t34_670M_UR50D.pt         |
+|           | `esm1_t34_670M_UR100`        | 34           | 670M        | UR100 2018_03                            | 1280 |  https://dl.fbaipublicfiles.com/fair-esm/models/esm1_t34_670M_UR100.pt         |
+|           | `esm1_t12_85M_UR50S`         | 12           | 85M         | UR50/S 2018_03                           | 768  |  https://dl.fbaipublicfiles.com/fair-esm/models/esm1_t12_85M_UR50S.pt          |
+|           | `esm1_t6_43M_UR50S`          | 6            | 43M         | UR50/S 2018_03                           | 768  |  https://dl.fbaipublicfiles.com/fair-esm/models/esm1_t6_43M_UR50S.pt           |
 
 
 Here is a chronological list of the released models and the paper they were introduced in:
@@ -636,7 +695,7 @@ Comparison to related protein language models on structure prediction tasks.
 fitted with logistic regression on 20 structures.
 For more details on the method, see [Rao et al. 2020](https://doi.org/10.1101/2020.12.15.422761).
 * For structure prediction, an AlphaFold2 structure module is trained directly from the frozen language model embeddings.
-For more details on the method, see [Lin et al. 2022](https://doi.org/10.1101/2022.07.20.500902).
+For more details on the method, see [Lin et al. 2022](https://www.science.org/doi/abs/10.1126/science.ade2574).
 * Direct coupling analysis methods (Gremlin, mfDCA, Psicov) and ESM-MSA-1 use the [trRosetta MSAs](https://yanglab.nankai.edu.cn/trRosetta/benchmark/), while other methods predict from single sequence.
 
 
