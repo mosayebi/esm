@@ -1,4 +1,4 @@
-# Copyright (c) Facebook, Inc. and its affiliates.
+# Copyright (c) Meta Platforms, Inc. and affiliates.
 #
 # This source code is licensed under the MIT license found in the
 # LICENSE file in the root directory of this source tree.
@@ -134,7 +134,7 @@ def score_sequence(model, alphabet, coords, seq):
 def get_encoder_output(model, alphabet, coords):
     device = next(model.parameters()).device
     batch_converter = CoordBatchConverter(alphabet)
-    batch = [(coords, None, seq)]
+    batch = [(coords, None, None)]
     coords, confidence, strs, tokens, padding_mask = batch_converter(
         batch, device=device)
     encoder_out = model.encoder.forward(coords, padding_mask, confidence,
